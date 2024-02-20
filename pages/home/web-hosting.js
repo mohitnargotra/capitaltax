@@ -88,7 +88,7 @@ const WebHosting = () => {
                 Not sure which website hosting plan is right for you? We can
                 help.
                 <a href="#" className="fw-normal text-decoration-underline">
-                  Free Consultation
+                  Free Consultations
                 </a>
               </div>
             </div>
