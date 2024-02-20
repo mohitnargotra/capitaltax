@@ -196,18 +196,68 @@ const MainMenu = () => {
           </li>
           {/* End li (portfolio) */}
 
-          <li className="nav-item">
-            <a href="/blog/blog-v3" className="nav-link">
+          <li className="nav-item dropdown">
+            <a
+              // className="nav-link dropdown-toggle"
+              className={
+                blogItems.some((elm) => isActive(elm.link))
+                  ? "nav-link dropdown-toggle active-menu"
+                  : "nav-link dropdown-toggle"
+              }
+              href="#"
+              role="button"
+              data-bs-toggle="dropdown"
+              data-bs-auto-close="outside"
+              aria-expanded="false"
+            >
               Blog
             </a>
+            <ul className="dropdown-menu">
+              {blogItems.map((blog, index) => (
+                <li key={index}>
+                  <Link
+                    href={blog.link}
+                    className={`dropdown-item ${
+                      isActive(blog.link) ? "active" : ""
+                    }`}
+                  >
+                    <span>{blog.text}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </li>
-
           {/* End li (blog) */}
 
-          <li className="nav-item">
-            <a href="/contact/contact-v2" className="nav-link">
+          <li className="nav-item dropdown">
+            <a
+              className={
+                contactItems.some((elm) => isActive(elm.link))
+                  ? "nav-link dropdown-toggle active-menu"
+                  : "nav-link dropdown-toggle"
+              }
+              href="#"
+              role="button"
+              data-bs-toggle="dropdown"
+              data-bs-auto-close="outside"
+              aria-expanded="false"
+            >
               Contact
             </a>
+            <ul className="dropdown-menu">
+              {contactItems.map((contact, index) => (
+                <li key={index}>
+                  <Link
+                    href={contact.link}
+                    className={`dropdown-item ${
+                      isActive(contact.link) ? "active" : ""
+                    }`}
+                  >
+                    <span>{contact.text}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </li>
           {/* End li (contact) */}
         </ul>
